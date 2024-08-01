@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
 import './style.css';
 
-const Check : React.FC = ()  => {
-  const [checked, setChecked] = useState(false);
+interface CheckProps {
+  checked: boolean;
+  onChange: () => void;
+}
 
+const Check: React.FC<CheckProps> = ({ checked, onChange }) => {
   const handleClick = () => {
-    setChecked(!checked);
+    onChange();
   };
 
   return (
-    <button
-      className="check"
-      onClick={handleClick}
-    >
+    <button className="check" onClick={handleClick}>
       {checked ? '✓' : ''}
     </button>
-  )
+  );
 };
 
 export default Check;
