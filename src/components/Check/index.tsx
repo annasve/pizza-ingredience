@@ -2,12 +2,12 @@ import './style.css';
 
 interface CheckProps {
   checked: boolean;
-  onChange: () => void;
+  onChange: (value: boolean) => void;
 }
 
 const Check: React.FC<CheckProps> = ({ checked, onChange }) => {
   const handleClick = () => {
-    onChange();
+    onChange(!checked);
   };
 
   return (
